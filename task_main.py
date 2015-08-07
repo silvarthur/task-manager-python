@@ -1,3 +1,4 @@
+import pickle
 from task import Task
 
 l = []
@@ -17,12 +18,19 @@ while True:
         end_date = raw_input("End date: ")
         description = raw_input("Description: ")
 
-        x = Task(name, start_date, end_date, description)
-        l.append(x)
+        with open("tasks.obj","ab") as f:
+            x = Task(name, start_date, end_date, description)
+            pickle.dump(x,f)
 
     elif(option == 2):
         print "2"
     elif(option == 3):
-        print "3"
+        with open("tasks.obj","rb") as v:
+
+            while True:
+                try:
+                    print pickle.load(v)
+                except EOFError:
+                    break
     elif(option == 4):
         break
