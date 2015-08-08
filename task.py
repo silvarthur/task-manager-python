@@ -1,7 +1,7 @@
 class Task:
 
     def __init__(self,name,start,end,description):
-        print "You've just created a task! Now, do it!"
+        print "You've just created a task! Now, do it!" + "\n"
         self.name = name
         self.start = start
         self.end = end
